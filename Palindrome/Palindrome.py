@@ -2,22 +2,21 @@ import math
 import unittest
 
 
-# first solution that comes to my mind
-def my_solution(string):
+def first_solution(string):
     if type(string) is str:
         return string == string[::-1]
     else:
         return False
 
 
-def alternate_solution(string):
+def second_solution(string):
     if type(string) is str:
         return string.find(string[::-1]) == 0
     else:
         return False
 
 
-def loop_through_solution(string):
+def third_solution(string):
     if type(string) is str:
         length_of_string = len(string)
         for i in range(0, math.floor(length_of_string / 2)):
@@ -30,44 +29,44 @@ def loop_through_solution(string):
 
 
 class PalindromeTest(unittest.TestCase):
-    def test_my_solution(self):
-        self.assertTrue(my_solution("aba"))
-        self.assertFalse(my_solution(" aba"))
-        self.assertFalse(my_solution("aba "))
-        self.assertFalse(my_solution("greetings"))
-        self.assertTrue(my_solution("1000000001"))
-        self.assertFalse(my_solution("Fish hsif"))
-        self.assertTrue(my_solution("pennep"))
-        self.assertTrue(my_solution(""))
-        self.assertTrue(my_solution("a"))
-        self.assertFalse(my_solution("twelve twins twirled twelve twigs"))
-        self.assertFalse(my_solution(12))
-        self.assertTrue(my_solution("step on no pets"))
+    def test_first_solution(self):
+        self.assertTrue(first_solution("aba"))
+        self.assertFalse(first_solution(" aba"))
+        self.assertFalse(first_solution("aba "))
+        self.assertFalse(first_solution("greetings"))
+        self.assertTrue(first_solution("1000000001"))
+        self.assertFalse(first_solution("Fish hsif"))
+        self.assertTrue(first_solution("pennep"))
+        self.assertTrue(first_solution(""))
+        self.assertTrue(first_solution("a"))
+        self.assertFalse(first_solution("twelve twins twirled twelve twigs"))
+        self.assertFalse(first_solution(12))
+        self.assertTrue(first_solution("step on no pets"))
 
-    def test_alternate_solution(self):
-        self.assertTrue(alternate_solution("aba"))
-        self.assertFalse(alternate_solution(" aba"))
-        self.assertFalse(alternate_solution("aba "))
-        self.assertFalse(alternate_solution("greetings"))
-        self.assertTrue(alternate_solution("1000000001"))
-        self.assertFalse(alternate_solution("Fish hsif"))
-        self.assertTrue(alternate_solution("pennep"))
-        self.assertTrue(alternate_solution(""))
-        self.assertTrue(alternate_solution("a"))
-        self.assertFalse(alternate_solution("twelve twins twirled twelve twigs"))
-        self.assertFalse(alternate_solution(12))
-        self.assertTrue(alternate_solution("step on no pets"))
+    def test_second_solution(self):
+        self.assertTrue(second_solution("aba"))
+        self.assertFalse(second_solution(" aba"))
+        self.assertFalse(second_solution("aba "))
+        self.assertFalse(second_solution("greetings"))
+        self.assertTrue(second_solution("1000000001"))
+        self.assertFalse(second_solution("Fish hsif"))
+        self.assertTrue(second_solution("pennep"))
+        self.assertTrue(second_solution(""))
+        self.assertTrue(second_solution("a"))
+        self.assertFalse(second_solution("twelve twins twirled twelve twigs"))
+        self.assertFalse(second_solution(12))
+        self.assertTrue(second_solution("step on no pets"))
 
-    def test_loop_through_solution(self):
-        self.assertTrue(loop_through_solution("aba"))
-        self.assertFalse(loop_through_solution(" aba"))
-        self.assertFalse(loop_through_solution("aba "))
-        self.assertFalse(loop_through_solution("greetings"))
-        self.assertTrue(loop_through_solution("1000000001"))
-        self.assertFalse(loop_through_solution("Fish hsif"))
-        self.assertTrue(loop_through_solution("pennep"))
-        self.assertTrue(loop_through_solution(""))
-        self.assertTrue(loop_through_solution("a"))
-        self.assertFalse(loop_through_solution("twelve twins twirled twelve twigs"))
-        self.assertFalse(loop_through_solution(12))
-        self.assertTrue(loop_through_solution("step on no pets"))
+    def test_third_solution_solution(self):
+        self.assertTrue(third_solution("aba"))
+        self.assertFalse(third_solution(" aba"))
+        self.assertFalse(third_solution("aba "))
+        self.assertFalse(third_solution("greetings"))
+        self.assertTrue(third_solution("1000000001"))
+        self.assertFalse(third_solution("Fish hsif"))
+        self.assertTrue(third_solution("pennep"))
+        self.assertTrue(third_solution(""))
+        self.assertTrue(third_solution("a"))
+        self.assertFalse(third_solution("twelve twins twirled twelve twigs"))
+        self.assertFalse(third_solution(12))
+        self.assertTrue(third_solution("step on no pets"))

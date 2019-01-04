@@ -1,7 +1,7 @@
 import unittest
 
 
-def my_solution(string):
+def first_solution(string):
     char_frequency = {}
     for i in string:
         if i in char_frequency:
@@ -21,7 +21,7 @@ def my_solution(string):
 
 
 class MaxCharsTest(unittest.TestCase):
-    def test_my_solution(self):
-        self.assertEqual(my_solution('a'), 'a')
-        self.assertEqual(my_solution('abcdefghijklmnaaaaa'), 'a')
-        self.assertEqual(my_solution('ab1c1d1e1f1g1'), '1')
+    def test_first_solution(self):
+        self.assertEqual(first_solution('a'), 'a')
+        self.assertEqual(first_solution('abcdefghijklmnaaaaa'), 'a')
+        self.assertEqual(first_solution('ab1c1d1e1f1g1'), '1')
