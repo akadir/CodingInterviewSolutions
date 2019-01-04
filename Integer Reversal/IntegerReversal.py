@@ -25,7 +25,7 @@ def solve_by_using_string_reversal(integer_to_be_reversed):
     return reversed_int
 
 
-class StringReversalTest(unittest.TestCase):
+class IntegerReversalTest(unittest.TestCase):
     def test_my_solution(self):
         self.assertEqual(my_solution(0), 0)
         self.assertEqual(my_solution(5), 5)

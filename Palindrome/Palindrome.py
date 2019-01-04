@@ -29,7 +29,7 @@ def loop_through_solution(string):
         return False
 
 
-class StringReversalTest(unittest.TestCase):
+class PalindromeTest(unittest.TestCase):
     def test_my_solution(self):
         self.assertTrue(my_solution("aba"))
         self.assertFalse(my_solution(" aba"))
