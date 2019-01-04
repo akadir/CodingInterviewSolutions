@@ -37,6 +37,9 @@ def another_solution(string_to_be_reversed):
 
 class StringReversalTest(unittest.TestCase):
     def test_my_solution(self):
+        self.assertEqual(my_solution("abcd"), "dcba")
+        self.assertEqual(my_solution(" abcd"), "dcba ")
+        self.assertEqual(my_solution(""), "")
         self.assertEqual(my_solution(""), "")
         self.assertEqual(my_solution("a"), "a")
         self.assertEqual(my_solution("twelve twins twirled twelve twigs"), "sgiwt evlewt delriwt sniwt evlewt")
@@ -44,6 +47,8 @@ class StringReversalTest(unittest.TestCase):
         self.assertEqual(my_solution("1234"), "4321")
 
     def test_built_in_solution(self):
+        self.assertEqual(built_in_solution("abcd"), "dcba")
+        self.assertEqual(built_in_solution(" abcd"), "dcba ")
         self.assertEqual(built_in_solution(""), "")
         self.assertEqual(built_in_solution("a"), "a")
         self.assertEqual(built_in_solution("twelve twins twirled twelve twigs"), "sgiwt evlewt delriwt sniwt evlewt")
@@ -51,6 +56,8 @@ class StringReversalTest(unittest.TestCase):
         self.assertEqual(built_in_solution("1234"), "4321")
 
     def test_loop_through_solution(self):
+        self.assertEqual(another_solution("abcd"), "dcba")
+        self.assertEqual(another_solution(" abcd"), "dcba ")
         self.assertEqual(another_solution(""), "")
         self.assertEqual(another_solution("a"), "a")
         self.assertEqual(another_solution("twelve twins twirled twelve twigs"), "sgiwt evlewt delriwt sniwt evlewt")
