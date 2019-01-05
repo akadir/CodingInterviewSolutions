@@ -29,17 +29,17 @@ def fourth_solution(sentence):
 
 class TestCapitalize(unittest.TestCase):
     def test_first_solution(self):
-        self.assertEqual(first_solution('hi there, how is it going?'), 'Hi There, How Is It Going?')
-        self.assertEqual(first_solution('i love breakfast at bill miller bbq'), 'I Love Breakfast At Bill Miller Bbq')
+        self.assertEqual('Hi There, How Is It Going?', first_solution('hi there, how is it going?'))
+        self.assertEqual('I Love Breakfast At Bill Miller Bbq', first_solution('i love breakfast at bill miller bbq'))
 
     def test_second_solution(self):
-        self.assertEqual(second_solution('hi there, how is it going?'), 'Hi There, How Is It Going?')
-        self.assertEqual(second_solution('i love breakfast at bill miller bbq'), 'I Love Breakfast At Bill Miller Bbq')
+        self.assertEqual('Hi There, How Is It Going?', second_solution('hi there, how is it going?'))
+        self.assertEqual('I Love Breakfast At Bill Miller Bbq', second_solution('i love breakfast at bill miller bbq'))
 
     def test_third_solution(self):
-        self.assertEqual(third_solution('hi there, how is it going?'), 'Hi There, How Is It Going?')
-        self.assertEqual(third_solution('i love breakfast at bill miller bbq'), 'I Love Breakfast At Bill Miller Bbq')
+        self.assertEqual('Hi There, How Is It Going?', third_solution('hi there, how is it going?'))
+        self.assertEqual('I Love Breakfast At Bill Miller Bbq', third_solution('i love breakfast at bill miller bbq'))
 
     def test_fourth_solution(self):
-        self.assertEqual(fourth_solution('hi there, how is it going?'), 'Hi There, How Is It Going?')
-        self.assertEqual(fourth_solution('i love breakfast at bill miller bbq'), 'I Love Breakfast At Bill Miller Bbq')
+        self.assertEqual('Hi There, How Is It Going?', fourth_solution('hi there, how is it going?'))
+        self.assertEqual('I Love Breakfast At Bill Miller Bbq', fourth_solution('i love breakfast at bill miller bbq'))

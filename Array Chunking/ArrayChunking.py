@@ -40,30 +40,30 @@ def third_solution(array, size):
 class TestArrayChunking(unittest.TestCase):
     def test_first_solution(self):
         arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        self.assertEqual(first_solution(arr, 2), [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+        self.assertEqual([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]], first_solution(arr, 2))
         arr = [1, 2, 3]
-        self.assertEqual(first_solution(arr, 1), [[1], [2], [3]])
+        self.assertEqual([[1], [2], [3]], first_solution(arr, 1))
         arr = [1, 2, 3, 4, 5]
-        self.assertEqual(first_solution(arr, 3), [[1, 2, 3], [4, 5]])
+        self.assertEqual([[1, 2, 3], [4, 5]], first_solution(arr, 3))
         arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-        self.assertEqual(first_solution(arr, 5), [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]])
+        self.assertEqual([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]], first_solution(arr, 5))
 
     def test_second_solution(self):
         arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        self.assertEqual(second_solution(arr, 2), [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+        self.assertEqual([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]], second_solution(arr, 2))
         arr = [1, 2, 3]
-        self.assertEqual(second_solution(arr, 1), [[1], [2], [3]])
+        self.assertEqual([[1], [2], [3]], second_solution(arr, 1))
         arr = [1, 2, 3, 4, 5]
-        self.assertEqual(second_solution(arr, 3), [[1, 2, 3], [4, 5]])
+        self.assertEqual([[1, 2, 3], [4, 5]], second_solution(arr, 3))
         arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-        self.assertEqual(second_solution(arr, 5), [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]])
+        self.assertEqual([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]], second_solution(arr, 5))
 
     def test_third_solution(self):
         arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        self.assertEqual(third_solution(arr, 2), [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+        self.assertEqual([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]], third_solution(arr, 2))
         arr = [1, 2, 3]
-        self.assertEqual(third_solution(arr, 1), [[1], [2], [3]])
+        self.assertEqual([[1], [2], [3]], third_solution(arr, 1))
         arr = [1, 2, 3, 4, 5]
-        self.assertEqual(third_solution(arr, 3), [[1, 2, 3], [4, 5]])
+        self.assertEqual([[1, 2, 3], [4, 5]], third_solution(arr, 3))
         arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-        self.assertEqual(third_solution(arr, 5), [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]])
+        self.assertEqual([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]], third_solution(arr, 5))

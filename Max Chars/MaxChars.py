@@ -22,6 +22,6 @@ def first_solution(string):
 
 class MaxCharsTest(unittest.TestCase):
     def test_first_solution(self):
-        self.assertEqual(first_solution('a'), 'a')
-        self.assertEqual(first_solution('abcdefghijklmnaaaaa'), 'a')
-        self.assertEqual(first_solution('ab1c1d1e1f1g1'), '1')
+        self.assertEqual('a',first_solution('a'))
+        self.assertEqual('a',first_solution('abcdefghijklmnaaaaa'))
+        self.assertEqual('1',first_solution('ab1c1d1e1f1g1'))

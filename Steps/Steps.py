@@ -49,36 +49,36 @@ class StepsTest(unittest.TestCase):
 
     def test_call_first_solution_with_one(self):
         first_solution(1)
-        self.assertEqual(sys.stdout.getvalue(), '#\n')
+        self.assertEqual('#\n', sys.stdout.getvalue())
 
     def test_call_first_solution_with_two(self):
         first_solution(2)
-        self.assertEqual(sys.stdout.getvalue(), '# \n##\n')
+        self.assertEqual('# \n##\n', sys.stdout.getvalue())
 
     def test_call_first_solution_with_three(self):
         first_solution(3)
-        self.assertEqual(sys.stdout.getvalue(), '#  \n## \n###\n')
+        self.assertEqual('#  \n## \n###\n', sys.stdout.getvalue())
 
     def test_call_second_solution_with_one(self):
         second_solution(1)
-        self.assertEqual(sys.stdout.getvalue(), '#\n')
+        self.assertEqual('#\n', sys.stdout.getvalue())
 
     def test_call_second_solution_with_two(self):
         second_solution(2)
-        self.assertEqual(sys.stdout.getvalue(), '# \n##\n')
+        self.assertEqual('# \n##\n', sys.stdout.getvalue())
 
     def test_call_second_solution_with_three(self):
         second_solution(3)
-        self.assertEqual(sys.stdout.getvalue(), '#  \n## \n###\n')
+        self.assertEqual('#  \n## \n###\n', sys.stdout.getvalue())
 
     def test_call_third_solution_with_one(self):
         third_solution(1)
-        self.assertEqual(sys.stdout.getvalue(), '#\n')
+        self.assertEqual('#\n', sys.stdout.getvalue())
 
     def test_call_third_solution_with_two(self):
         third_solution(2)
-        self.assertEqual(sys.stdout.getvalue(), '# \n##\n')
+        self.assertEqual('# \n##\n', sys.stdout.getvalue())
 
     def test_call_third_solution_with_three(self):
         third_solution(3)
-        self.assertEqual(sys.stdout.getvalue(), '#  \n## \n###\n')
+        self.assertEqual('#  \n## \n###\n', sys.stdout.getvalue())

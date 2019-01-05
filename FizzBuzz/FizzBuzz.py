@@ -14,13 +14,13 @@ def fizz_buzz(number):
 
 class FizzBuzzTest(unittest.TestCase):
     def test_fizz_buzz(self):
-        self.assertEqual(fizz_buzz(1), 1)
-        self.assertEqual(fizz_buzz(2), 2)
-        self.assertEqual(fizz_buzz(3), 'fizz')
-        self.assertEqual(fizz_buzz(4), 4)
-        self.assertEqual(fizz_buzz(5), 'buzz')
-        self.assertEqual(fizz_buzz(6), 'fizz')
-        self.assertEqual(fizz_buzz(7), 7)
-        self.assertEqual(fizz_buzz(9), 'fizz')
-        self.assertEqual(fizz_buzz(10), 'buzz')
-        self.assertEqual(fizz_buzz(15), 'fizzbuzz')
+        self.assertEqual(1, fizz_buzz(1))
+        self.assertEqual(2, fizz_buzz(2))
+        self.assertEqual('fizz', fizz_buzz(3))
+        self.assertEqual(4, fizz_buzz(4))
+        self.assertEqual('buzz', fizz_buzz(5))
+        self.assertEqual('fizz', fizz_buzz(6))
+        self.assertEqual(7, fizz_buzz(7))
+        self.assertEqual('fizz', fizz_buzz(9))
+        self.assertEqual('buzz', fizz_buzz(10))
+        self.assertEqual('fizzbuzz', fizz_buzz(15))
