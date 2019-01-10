@@ -35,6 +35,10 @@ class LinkedList:
     def clear(self):
         self.head = None
 
+    def remove_first(self):
+        if self.head is not None:
+            self.head = self.head.next_node
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -79,3 +83,10 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(4, linked_list.size())
         linked_list.clear()
         self.assertEqual(0, linked_list.size())
+
+    def test_remove_first(self):
+        linked_list = LinkedList()
+        linked_list.insert_first('a')
+        linked_list.remove_first()
+        self.assertEqual(0, linked_list.size())
+        self.assertEqual(None, linked_list.get_first())
