@@ -74,6 +74,16 @@ class LinkedList:
                 counter = counter + 1
             return node
 
+    def remove_at(self, index):
+        if self.size() is 0:
+            return
+        elif index is 0:
+            self.head = self.head.next_node
+        elif 0 < index < self.size():
+            counter = 0
+            previous_node = self.get_at(index - 1)
+            previous_node.next_node = previous_node.next_node.next_node
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -193,3 +203,52 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(2, linked_list.get_at(1).data)
         self.assertEqual(3, linked_list.get_at(2).data)
         self.assertEqual(4, linked_list.get_at(3).data)
+
+    def test_remove_at_with_empty_list(self):
+        try:
+            linked_list = LinkedList()
+            linked_list.remove_at(0)
+            linked_list.remove_at(1)
+            linked_list.remove_at(2)
+        except Exception:
+            self.fail("raised exception", Exception)
+
+    def test_remove_at_on_an_index_out_of_bounds(self):
+        try:
+            linked_list = LinkedList()
+
+            linked_list.insert_last('a')
+            linked_list.remove_at(1)
+        except Exception:
+            self.fail("raised exception", Exception)
+
+    def test_remove_at_with_first_node(self):
+        linked_list = LinkedList()
+
+        linked_list.insert_last(1)
+        linked_list.insert_last(2)
+        linked_list.insert_last(3)
+        linked_list.insert_last(4)
+        self.assertEqual(1, linked_list.get_at(0).data)
+        linked_list.remove_at(0)
+        self.assertEqual(2, linked_list.get_at(0).data)
+
+    def test_remove_at_with_index(self):
+        linked_list = LinkedList()
+        linked_list.insert_last(1)
+        linked_list.insert_last(2)
+        linked_list.insert_last(3)
+        linked_list.insert_last(4)
+        self.assertEqual(2, linked_list.get_at(1).data)
+        linked_list.remove_at(1)
+        self.assertEqual(3, linked_list.get_at(1).data)
+
+    def test_remove_at_with_last_node(self):
+        linked_list = LinkedList()
+        linked_list.insert_last(1)
+        linked_list.insert_last(2)
+        linked_list.insert_last(3)
+        linked_list.insert_last(4)
+        self.assertEqual(4, linked_list.get_at(3).data)
+        linked_list.remove_at(3);
+        self.assertEqual(None, linked_list.get_at(3))
