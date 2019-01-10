@@ -26,6 +26,12 @@ class LinkedList:
     def get_first(self):
         return self.head
 
+    def get_last(self):
+        last = self.head
+        while last is not None and last.next_node is not None:
+            last = last.next_node
+        return last
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -50,3 +56,12 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(1, linked_list.get_first().data)
         linked_list.insert_first(2)
         self.assertEqual(2, linked_list.get_first().data)
+
+    def test_get_last(self):
+        l = LinkedList()
+        l.insert_first(2)
+        self.assertEqual(2, l.get_last().data)
+        self.assertEqual(None, l.get_last().next_node)
+        l.insert_first(1)
+        self.assertEqual(2, l.get_last().data)
+        self.assertEqual(None, l.get_last().next_node)
