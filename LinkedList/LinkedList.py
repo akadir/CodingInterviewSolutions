@@ -63,6 +63,17 @@ class LinkedList:
         else:
             last_node.next_node = new_node
 
+    def get_at(self, index):
+        if index >= self.size() or index < 0 or self.head is None:
+            return None
+        else:
+            node = self.head
+            counter = 0
+            while counter < index:
+                node = node.next_node
+                counter = counter + 1
+            return node
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -168,3 +179,17 @@ class TestLinkedList(unittest.TestCase):
 
         self.assertEqual(2, linked_list.size())
         self.assertEqual('b', linked_list.get_last().data)
+
+    def test_get_at(self):
+        linked_list = LinkedList()
+        self.assertEqual(None, linked_list.get_at(10))
+
+        linked_list.insert_last(1)
+        linked_list.insert_last(2)
+        linked_list.insert_last(3)
+        linked_list.insert_last(4)
+
+        self.assertEqual(1, linked_list.get_at(0).data)
+        self.assertEqual(2, linked_list.get_at(1).data)
+        self.assertEqual(3, linked_list.get_at(2).data)
+        self.assertEqual(4, linked_list.get_at(3).data)
