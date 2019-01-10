@@ -39,9 +39,6 @@ def recursive_solution_with_memoization(number):
     return recursive_solution_with_memoization(number - 1) + recursive_solution_with_memoization(number - 2)
 
 
-fib = memoize(recursive_solution_with_memoization)
-
-
 class FibTest(unittest.TestCase):
     def test_iterative_solution(self):
         self.assertEqual(1, iterative_solution(1))
