@@ -84,6 +84,21 @@ class LinkedList:
             previous_node = self.get_at(index - 1)
             previous_node.next_node = previous_node.next_node.next_node
 
+    def insert_at(self, data, index):
+        new_node = Node(data)
+        if self.size() == 0:
+            self.head = new_node
+        elif index <= 0:
+            new_node.next_node = self.head
+            self.head = new_node
+        elif index >= self.size():
+            last_node = self.get_last()
+            last_node.next_node = new_node
+        else:
+            previous_node = self.get_at(index - 1)
+            new_node.next_node = previous_node.next_node
+            previous_node.next_node = new_node
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -252,3 +267,50 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(4, linked_list.get_at(3).data)
         linked_list.remove_at(3);
         self.assertEqual(None, linked_list.get_at(3))
+
+    def test_insert_at_with_adding_at_the_zero_index_of_empty_list(self):
+        linked_list = LinkedList()
+        linked_list.insert_at('hi', 0)
+        self.assertEqual('hi', linked_list.get_first().data)
+
+    def test_insert_at_with_adding_at_the_zero_index_of_nonempty_list(self):
+        linked_list = LinkedList()
+        linked_list.insert_last('a')
+        linked_list.insert_last('b')
+        linked_list.insert_last('c')
+        linked_list.insert_at('hi', 0)
+        self.assertEqual('hi', linked_list.get_at(0).data)
+        self.assertEqual('a', linked_list.get_at(1).data)
+        self.assertEqual('b', linked_list.get_at(2).data)
+        self.assertEqual('c', linked_list.get_at(3).data)
+
+    def test_insert_at_with_adding_data_at_a_middle_index(self):
+        linked_list = LinkedList()
+        linked_list.insert_last('a')
+        linked_list.insert_last('b')
+        linked_list.insert_last('c')
+        linked_list.insert_last('d')
+        linked_list.insert_at('hi', 2)
+        self.assertEqual('a', linked_list.get_at(0).data)
+        self.assertEqual('b', linked_list.get_at(1).data)
+        self.assertEqual('hi', linked_list.get_at(2).data)
+        self.assertEqual('c', linked_list.get_at(3).data)
+        self.assertEqual('d', linked_list.get_at(4).data)
+
+    def test_insert_at_with_adding_data_at_last_index(self):
+        linked_list = LinkedList()
+        linked_list.insert_last('a')
+        linked_list.insert_last('b')
+        linked_list.insert_at('hi', 2)
+        self.assertEqual('a', linked_list.get_at(0).data)
+
+    def test_insert_at_with_adding_new_node_with_out_of_bound_index(self):
+        linked_list = LinkedList()
+
+        linked_list.insert_last('a')
+        linked_list.insert_last('b')
+        linked_list.insert_at('hi', 30)
+
+        self.assertEqual('a', linked_list.get_at(0).data)
+        self.assertEqual('b', linked_list.get_at(1).data)
+        self.assertEqual('hi', linked_list.get_at(2).data)
