@@ -39,6 +39,22 @@ class LinkedList:
         if self.head is not None:
             self.head = self.head.next_node
 
+    def remove_last(self):
+        size_of_linked_list = self.size()
+        if size_of_linked_list is 0:
+            return
+        elif size_of_linked_list is 1:
+            self.head = None
+        else:
+            previous = self.head
+            last = self.head
+
+            while last is not None and last.next_node is not None:
+                previous = last
+                last = last.next_node
+
+            previous.next_node = None
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -92,13 +108,46 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(None, linked_list.get_first())
 
     def test_remove_first_when_list_has_size_of_three(self):
-        l = LinkedList()
-        l.insert_first('c')
-        l.insert_first('b')
-        l.insert_first('a')
-        l.remove_first()
-        self.assertEqual(2, l.size())
-        self.assertEqual('b', l.get_first().data)
-        l.remove_first()
-        self.assertEqual(1, l.size())
-        self.assertEqual('c', l.get_first().data)
+        linked_list = LinkedList()
+        linked_list.insert_first('c')
+        linked_list.insert_first('b')
+        linked_list.insert_first('a')
+        linked_list.remove_first()
+        self.assertEqual(2, linked_list.size())
+        self.assertEqual('b', linked_list.get_first().data)
+        linked_list.remove_first()
+        self.assertEqual(1, linked_list.size())
+        self.assertEqual('c', linked_list.get_first().data)
+
+    def test_remove_last_with_empty_list(self):
+        try:
+            linked_list = LinkedList()
+            linked_list.remove_last()
+        except Exception:
+            self.fail("raised exception", Exception)
+
+    def test_remove_last_with_list_has_size_of_one(self):
+        linked_list = LinkedList()
+        linked_list.insert_first('a')
+        linked_list.remove_last()
+        self.assertEqual(None, linked_list.head)
+
+    def test_remove_last_with_list_has_size_of_two(self):
+        linked_list = LinkedList()
+        linked_list.insert_first('b')
+        linked_list.insert_first('a')
+
+        linked_list.remove_last()
+
+        self.assertEqual(1, linked_list.size())
+        self.assertEqual('a', linked_list.head.data)
+
+    def test_remove_last_with_list_has_size_of_three(self):
+        linked_list = LinkedList()
+        linked_list.insert_first('c')
+        linked_list.insert_first('b')
+        linked_list.insert_first('a')
+        linked_list.remove_last()
+
+        self.assertEqual(2, linked_list.size())
+        self.assertEqual('b', linked_list.get_last().data)
