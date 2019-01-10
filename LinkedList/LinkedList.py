@@ -23,6 +23,9 @@ class LinkedList:
             node = node.next_node
         return size
 
+    def get_first(self):
+        return self.head
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -40,3 +43,10 @@ class TestLinkedList(unittest.TestCase):
         linked_list.insert_first(1)
         linked_list.insert_first(1)
         self.assertEqual(4, linked_list.size())
+
+    def test_get_first(self):
+        linked_list = LinkedList()
+        linked_list.insert_first(1)
+        self.assertEqual(1, linked_list.get_first().data)
+        linked_list.insert_first(2)
+        self.assertEqual(2, linked_list.get_first().data)
