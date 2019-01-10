@@ -55,6 +55,14 @@ class LinkedList:
 
             previous.next_node = None
 
+    def insert_last(self, data):
+        new_node = Node(data)
+        last_node = self.get_last()
+        if last_node is None:
+            self.head = new_node
+        else:
+            last_node.next_node = new_node
+
 
 class TestLinkedList(unittest.TestCase):
     def test_insert_first(self):
@@ -148,6 +156,15 @@ class TestLinkedList(unittest.TestCase):
         linked_list.insert_first('b')
         linked_list.insert_first('a')
         linked_list.remove_last()
+
+        self.assertEqual(2, linked_list.size())
+        self.assertEqual('b', linked_list.get_last().data)
+
+    def test_insert_last(self):
+        linked_list = LinkedList()
+        linked_list.insert_first('a')
+
+        linked_list.insert_last('b')
 
         self.assertEqual(2, linked_list.size())
         self.assertEqual('b', linked_list.get_last().data)
