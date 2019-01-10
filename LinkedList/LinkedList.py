@@ -90,3 +90,15 @@ class TestLinkedList(unittest.TestCase):
         linked_list.remove_first()
         self.assertEqual(0, linked_list.size())
         self.assertEqual(None, linked_list.get_first())
+
+    def test_remove_first_when_list_has_size_of_three(self):
+        l = LinkedList()
+        l.insert_first('c')
+        l.insert_first('b')
+        l.insert_first('a')
+        l.remove_first()
+        self.assertEqual(2, l.size())
+        self.assertEqual('b', l.get_first().data)
+        l.remove_first()
+        self.assertEqual(1, l.size())
+        self.assertEqual('c', l.get_first().data)
