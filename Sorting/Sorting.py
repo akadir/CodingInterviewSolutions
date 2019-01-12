@@ -11,6 +11,19 @@ def bubble_sort(arr):
     return arr
 
 
+def selection_sort(arr):
+    for i in range(0, len(arr)):
+        index_of_min = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[index_of_min]:
+                index_of_min = j
+        if index_of_min is not i:
+            lesser = arr[index_of_min]
+            arr[index_of_min] = arr[i]
+            arr[i] = lesser
+    return arr
+
+
 class SortingTest(unittest.TestCase):
     @staticmethod
     def get_array():
@@ -22,3 +35,6 @@ class SortingTest(unittest.TestCase):
 
     def test_bubble_sort(self):
         self.assertEqual(self.get_sorted_array(), bubble_sort(self.get_array()))
+
+    def test_selection_sort(self):
+        self.assertEqual(self.get_sorted_array(), selection_sort(self.get_array()))
