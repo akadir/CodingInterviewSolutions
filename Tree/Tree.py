@@ -19,7 +19,16 @@ class Node:
 
 class Tree:
     def __init__(self):
-        print()
+        self.root = None
+
+    def traverse_bf(self, test_arr):
+        arr = [self.root]
+        while len(arr) > 0:
+            node = arr.pop(0)
+
+            for child in node.children:
+                arr.append(child)
+            test_arr.append(node.data)
 
 
 class NodeTest(unittest.TestCase):
@@ -40,3 +49,21 @@ class NodeTest(unittest.TestCase):
         self.assertEqual(1, len(n.children))
         n.remove('b')
         self.assertEqual(0, len(n.children))
+
+
+class TreeTest(unittest.TestCase):
+    def test_should_start_empty(self):
+        t = Tree()
+        self.assertEqual(None, t.root)
+
+    def test_traverse_bf(self):
+        letters = []
+        t = Tree()
+        t.root = Node('a')
+        t.root.add('b')
+        t.root.add('c')
+        t.root.children[0].add('d')
+
+        t.traverse_bf(letters)
+
+        self.assertEqual(['a', 'b', 'c', 'd'], letters)
