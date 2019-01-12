@@ -12,8 +12,7 @@ class LinkedList:
         self.head = None
 
     def insert_first(self, data):
-        node = Node(data, self.head)
-        self.head = node
+        self.insert_at(data, 0)
 
     def size(self):
         size = 0
@@ -24,13 +23,10 @@ class LinkedList:
         return size
 
     def get_first(self):
-        return self.head
+        return self.get_at(0)
 
     def get_last(self):
-        last = self.head
-        while last is not None and last.next_node is not None:
-            last = last.next_node
-        return last
+        return self.get_at(self.size() - 1)
 
     def clear(self):
         self.head = None
@@ -56,12 +52,7 @@ class LinkedList:
             previous.next_node = None
 
     def insert_last(self, data):
-        new_node = Node(data)
-        last_node = self.get_last()
-        if last_node is None:
-            self.head = new_node
-        else:
-            last_node.next_node = new_node
+        self.insert_at(data, self.size())
 
     def get_at(self, index):
         if index >= self.size() or index < 0 or self.head is None:
