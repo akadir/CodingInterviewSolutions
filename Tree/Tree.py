@@ -30,6 +30,16 @@ class Tree:
                 arr.append(child)
             test_arr.append(node.data)
 
+    def traverse_df(self, test_arr):
+        arr = [self.root]
+        while len(arr) > 0:
+            node = arr.pop(0)
+
+            for n in node.children[::-1]:
+                arr.insert(0, n)
+
+            test_arr.append(node.data)
+
 
 class NodeTest(unittest.TestCase):
     def test_create_node(self):
@@ -65,5 +75,17 @@ class TreeTest(unittest.TestCase):
         t.root.children[0].add('d')
 
         t.traverse_bf(letters)
+
+        self.assertEqual(['a', 'b', 'c', 'd'], letters)
+
+    def test_traverse_df(self):
+        letters = []
+        t = Tree()
+        t.root = Node('a')
+        t.root.add('b')
+        t.root.add('d')
+        t.root.children[0].add('c')
+
+        t.traverse_df(letters)
 
         self.assertEqual(['a', 'b', 'c', 'd'], letters)
