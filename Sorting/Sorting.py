@@ -1,3 +1,4 @@
+import math
 import unittest
 
 
@@ -24,6 +25,29 @@ def selection_sort(arr):
     return arr
 
 
+def merge_sort(arr):
+    if len(arr) == 1:
+        return arr
+
+    center = math.floor(len(arr) / 2)
+    left = arr[0:center]
+    right = arr[center:]
+
+    return merge(merge_sort(left), merge_sort(right))
+
+
+def merge(left, right):
+    results = []
+
+    while len(left) > 0 and len(right):
+        if left[0] < right[0]:
+            results.append(left.pop(0))
+        else:
+            results.append(right.pop(0))
+
+    return results + left + right
+
+
 class SortingTest(unittest.TestCase):
     @staticmethod
     def get_array():
@@ -38,3 +62,12 @@ class SortingTest(unittest.TestCase):
 
     def test_selection_sort(self):
         self.assertEqual(self.get_sorted_array(), selection_sort(self.get_array()))
+
+    def test_merge(self):
+        left = [1, 10]
+        right = [2, 8, 12]
+
+        self.assertEqual([1, 2, 8, 10, 12], merge(left, right))
+
+    def test_merge_sort(self):
+        self.assertEqual(self.get_sorted_array(), merge_sort(self.get_array()))
