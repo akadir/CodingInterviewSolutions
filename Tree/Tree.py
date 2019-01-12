@@ -17,7 +17,12 @@ class Node:
         #         self.children.remove(d)
 
 
-class TreeTest(unittest.TestCase):
+class Tree:
+    def __init__(self):
+        print()
+
+
+class NodeTest(unittest.TestCase):
     def test_create_node(self):
         n = Node('a')
         self.assertEqual('a', n.data)
